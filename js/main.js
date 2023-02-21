@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let componentValue = '';
   let componentSelected = false;
 
+  function componentTypeFunc(className) {
+    componentValue = className;
+    calcuDisplay.value = ''
+    componentSelected = true;
+  }
+
   numberField.addEventListener('click', (e) => {
     let target = e.target;
     let numberValue = target.innerHTML;
@@ -36,28 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
       componentSelected = false;
       calcuDisplay.value = ''
     }
-    if (target.innerText === '+' && componentSelected === false) {
-      componentValue = 'addition';
-      calcuDisplay.value = ''
-      componentSelected = true;
-    } else if (target.innerText === '-' && componentSelected === false) {
-      componentValue = 'subtraction';
-      calcuDisplay.value = ''
-      componentSelected = true;
-    } else if (target.innerText === '/' && componentSelected === false) {
-      componentValue = 'divide';
-      calcuDisplay.value = ''
-      componentSelected = true;
-    } else if (target.innerText === '*' && componentSelected === false) {
-      componentValue = 'multiply';
-      calcuDisplay.value = ''
-      componentSelected = true;
+    if (target.className === 'add' && componentSelected === false) {
+      componentTypeFunc(target.className)
+    } else if (target.className === 'subtract' && componentSelected === false) {
+      componentTypeFunc(target.className)
+    } else if (target.className === 'divide' && componentSelected === false) {
+      componentTypeFunc(target.className)
+    } else if (target.className === 'multiply' && componentSelected === false) {
+      componentTypeFunc(target.className)
     }
     else if (target.className === 'sum' && componentSelected === true) {
-      if (componentValue === 'addition') {
+      if (componentValue === 'add') {
         sum = parseFloat(firstValue) + parseFloat(secondValue);
         calcuDisplay.value = sum;
-      } else if (componentValue === 'subtraction') {
+      } else if (componentValue === 'subtract') {
         sum = parseFloat(firstValue) - parseFloat(secondValue);
         calcuDisplay.value = sum;
       } else if (componentValue === 'divide') {
