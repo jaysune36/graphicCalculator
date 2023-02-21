@@ -1,0 +1,10 @@
+/*=====================================
+        Grid Layout
+======================================*/
+
+.grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+  @include center;
+}

@@ -2,6 +2,15 @@
         BASE STYLES
 ======================================*/
 
-h1 {
-  color: green;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Shantell Sans', cursive;
+}
+
+ul,
+nav {
+  list-style-type: none;
 }

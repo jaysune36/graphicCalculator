@@ -1,0 +1,15 @@
+/*=====================================
+        FLEXBOX 
+======================================*/
+
+.flexCal {
+  @include flex-row;
+  justify-content: center;
+}
+
+.numFlex,
+.compFlex {
+  @include flex-row;
+  justify-content: center;
+  gap: 10px;
+}
