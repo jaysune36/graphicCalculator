@@ -43,9 +43,14 @@ main p {
 }
 
 .calcuDisp input {
+  font-size: 1.5em;
+  text-align: right;
   border-radius: 0;
   height: 2.5em;
   width: 100%;
+}
+.calcuDisp input ::placeholder {
+  opacity: 0.5;
 }
 
 /*=====================================
@@ -73,6 +78,14 @@ main p {
   background-color: #f09e3c;
 }
 
+/*=====================================
+        Animations
+======================================*/
+@keyframes quickBackground {
+  100% {
+    background-color: #f09e3c;
+  }
+}
 /*=====================================
         BASE PARTIALS
 ======================================*/
