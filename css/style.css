@@ -42,14 +42,14 @@ main p {
   padding: 0.5em;
 }
 
-.calcuDisp input {
+.calcuDisp p {
   font-size: 1.5em;
   text-align: right;
   border-radius: 0;
   height: 2.5em;
   width: 100%;
 }
-.calcuDisp input ::placeholder {
+.calcuDisp p ::placeholder {
   opacity: 0.5;
 }
 
