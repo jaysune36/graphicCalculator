@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     calcuDisplay.innerText = value;
   };
 
+  function keyBoardCompSelect(compClassName) {
+    componentSelectFunc(compClassName, componentField.querySelector(`.${compClassName}`).innerText)
+    componentField.querySelector(`.${compClassName}`).style.backgroundColor = '#f09e3c'
+    setTimeout(() => {
+      componentField.querySelector(`.${compClassName}`).removeAttribute('style');
+    }, 110);
+  }
+
   function componentSelectFunc(className, type) {
     componentValue = className;
     calcuDispTextFunc(type);
@@ -53,46 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  //eventlistener will register when clicked with keyboard
-  // bodyMain.addEventListener('keyup', (e)=> {
-  //   let pElements = numberField.querySelectorAll('p');
-  //   let pComponents = componentField.querySelectorAll('p');
-
-  //   for(let i=0; i<pElements.length;i++) {
-  //     let pElement = pElements[i];
-  //     let pElementTextCode = `Digit${pElement.innerText}`;
-  //     if(pElementTextCode === e.code) {
-  //       pElement.style.backgroundColor = '#f09e3c';
-  //       setTimeout(() => {
-  //         pElement.removeAttribute('style');
-  //       }, 100);
-  //       break;
-  //     }
-  //   }
-  //   console.log(e.code.toLowerCase());
-  //   for(let i=0; i<pComponents.length;i++) {
-  //     let pComponent = pComponents[i];
-  //     let pComponentCode = pComponent.className;
-  //     if(pComponentCode === 'add') {
-  //       pComponentCode = 'shiftright'
-  //       console.log(pComponentCode)
-  //     } else if(pComponentCode = 'multiply') {
-  //       pComponentCode = 'shiftleft'
-  //     }
-  //     if(pComponentCode === e.code.toLowerCase()) {
-  //       pComponent.style.backgroundColor = '#f09e3c'
-  //       setTimeout(() => {
-  //         pComponent.removeAttribute('style');
-  //       }, 110);
-  //     }
-  //   }
-  // });
-
   body.addEventListener('keyup', (e) => {
-    // console.log(e);
-    let pElements = numberField.querySelectorAll('p');
-    let pComponents = componentField.querySelectorAll('p');
-    if (componentSelected === false) {
+    
+    let pElements = numberField.querySelectorAll('p');  
+    console.info(`${e.key}: ${e.code}`);
+
+    // if(e.key === '+'){
+    //   console.log(true)
+    // }
+    if (componentSelected === false || firstValue === 0) {
       for (let i = 0; i < pElements.length; i++) {
         let pElement = pElements[i];
         let pElementTextCode = `Digit${pElement.innerText}`;
@@ -106,26 +83,36 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         }
       }
-    }
-
-      for (let i = 0; i < pComponents.length; i++) {
-        let pComponent = pComponents[i];
-        let pComponentCode = pComponent.id;
-        console.log(pComponentCode)
-        if (pComponentCode === e.code) {
-          console.log(true)
-          pComponent.style.backgroundColor = '#f09e3c'
+      console.log(`firstValue: ${firstValue}`);
+    } else {
+      for (let i = 0; i < pElements.length; i++) {
+        let pElement = pElements[i];
+        let pElementTextCode = `Digit${pElement.innerText}`;
+        if (pElementTextCode === e.code) {
+          secondValue = secondValue + pElement.innerText;
+          calcuDispTextFunc(secondValue)
+          pElement.style.backgroundColor = '#f09e3c';
           setTimeout(() => {
-            pComponent.removeAttribute('style');
-          }, 110);
+            pElement.removeAttribute('style');
+          }, 100);
           break;
         }
+      }
+      console.log(`secondValue: ${secondValue}`);
     }
-    // console.log(e.code)
-    // if(e.code === 'ShiftRight') {
-    // console.log(true)
-    // }
-  })
+
+    if(e.key === '+') {
+        keyBoardCompSelect('add');
+    } else if(e.key === '-') {
+        keyBoardCompSelect('minus');
+    } else if(e.key === '*') {
+      keyBoardCompSelect('multiply');
+    } else if(e.key === '/') {
+      keyBoardCompSelect('slash');
+    } else if(e.key === '=' || e.key === 'Enter') {
+      sumValueFunc(firstValue, secondValue)
+    }
+  });
 
   componentField.addEventListener('click', (e) => {
     let target = e.target;
@@ -153,4 +140,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-})
+});
