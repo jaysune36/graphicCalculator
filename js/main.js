@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let pElementTextCode = `${pElement.innerText}`;
         if (pElementTextCode === e.key) {
           firstValue = firstValue + pElement.innerText;
-          calcuDispTextFunc(firstValue)
+          calcuDispTextFunc(firstValue);
           pElement.style.backgroundColor = '#f09e3c';
           setTimeout(() => {
             pElement.removeAttribute('style');
