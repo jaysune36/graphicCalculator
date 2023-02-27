@@ -15,19 +15,34 @@ document.addEventListener('DOMContentLoaded', () => {
     calcuDisplay.innerText = value;
   };
 
-  function keyBoardCompSelect(compClassName) {
-    componentSelectFunc(compClassName, componentField.querySelector(`.${compClassName}`).innerText)
-    componentField.querySelector(`.${compClassName}`).style.backgroundColor = '#f09e3c'
+  function keyBoardHighlightFunc(className) {
+    componentField.querySelector(`.${className}`).style.backgroundColor = '#f09e3c'
     setTimeout(() => {
-      componentField.querySelector(`.${compClassName}`).removeAttribute('style');
+      componentField.querySelector(`.${className}`).removeAttribute('style');
     }, 110);
+  }
+
+  function keyBoardCompSelect(compClassName) {
+    componentSelectFunc(compClassName, componentField.querySelector(`.${compClassName}`).innerText);
+    keyBoardHighlightFunc(compClassName);
   }
 
   function componentSelectFunc(className, type) {
     componentValue = className;
     calcuDispTextFunc(type);
     componentSelected = true;
+    firstValueSel = false;
   };
+
+  function backspaceFunc() {
+    if(firstValueSel === true) {
+    firstValue = firstValue.slice(0, firstValue.length - 1);
+    calcuDispTextFunc(firstValue);
+    } else {
+      secondValue = secondValue.slice(0, secondValue.length - 1);
+      calcuDispTextFunc(secondValue);
+    }
+  }
 
   function sumValueFunc(firstValueArg, secondValueArg) {
     let sum = 0;
@@ -37,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (componentValue === 'minus') {
       sum = parseFloat(firstValueArg) - parseFloat(secondValueArg);
       calcuDispTextFunc(sum);
-    } else if (componentValue === 'divide') {
+    } else if (componentValue === 'slash') {
       sum = parseFloat(firstValueArg) / parseFloat(secondValueArg);
       calcuDispTextFunc(sum);
     } else if (componentValue === 'multiply') {
@@ -66,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let pElements = numberField.querySelectorAll('p');  
     console.info(`${e.key}: ${e.code}`);
     if (componentSelected === false || firstValue === 0) {
+      firstValueSel = true;
       for (let i = 0; i < pElements.length; i++) {
         let pElement = pElements[i];
         let pElementTextCode = `${pElement.innerText}`;
@@ -79,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         }
       }
-      console.log(`firstValue: ${firstValue}`);
     } else {
       for (let i = 0; i < pElements.length; i++) {
         let pElement = pElements[i];
@@ -94,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         }
       }
-      console.log(`secondValue: ${secondValue}`);
     }
 
     if(e.key === '+') {
@@ -105,6 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
       keyBoardCompSelect('multiply');
     } else if(e.key === '/') {
       keyBoardCompSelect('slash');
+    } else if(e.key === 'Backspace') {
+      if(firstValueSel === true) {
+        console.log(`firstValue: ${firstValue}`);
+        keyBoardHighlightFunc('backspace');
+        backspaceFunc();
+      } else {
+        console.log(`secondValue = ${secondValue}`);
+        keyBoardHighlightFunc('backspace');
+        backspaceFunc();
+      }
     } else if(e.key === '=' || e.key === 'Enter') {
       sumValueFunc(firstValue, secondValue)
     }
@@ -121,11 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
       componentSelected = false;
       calcuDisplay.innerText = '';
     }
-    if (target.className === 'add' && componentSelected === false) {
+    if(target.className === 'backspace') {
+      if(firstValueSel === true) {
+        backspaceFunc();
+      } else {
+        backspaceFunc();
+      }
+    }else if (target.className === 'add' && componentSelected === false) {
       componentSelectFunc(target.className, target.innerText);
     } else if (target.className === 'minus' && componentSelected === false) {
       componentSelectFunc(target.className, target.innerText);
-    } else if (target.className === 'divide' && componentSelected === false) {
+    } else if (target.className === 'slash' && componentSelected === false) {
       componentSelectFunc(target.className, target.innerText);
     } else if (target.className === 'multiply' && componentSelected === false) {
       componentSelectFunc(target.className, target.innerText);
