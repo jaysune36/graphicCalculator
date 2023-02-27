@@ -65,15 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let pElements = numberField.querySelectorAll('p');  
     console.info(`${e.key}: ${e.code}`);
-
-    // if(e.key === '+'){
-    //   console.log(true)
-    // }
     if (componentSelected === false || firstValue === 0) {
       for (let i = 0; i < pElements.length; i++) {
         let pElement = pElements[i];
-        let pElementTextCode = `Digit${pElement.innerText}`;
-        if (pElementTextCode === e.code) {
+        let pElementTextCode = `${pElement.innerText}`;
+        if (pElementTextCode === e.key) {
           firstValue = firstValue + pElement.innerText;
           calcuDispTextFunc(firstValue)
           pElement.style.backgroundColor = '#f09e3c';
