@@ -2,14 +2,21 @@
         FLEXBOX 
 ======================================*/
 
-.flexCal {
-  @include flex-row;
-  justify-content: center;
-}
+// .flexCal {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
 
-.numFlex,
-.compFlex {
-  @include flex-row;
-  justify-content: center;
-  gap: 10px;
-}
+// .numFlex,
+// .compFlex {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   gap: 10px;
+// }
+
+// .numFlex {
+//   flex-direction: column-reverse;
+// }

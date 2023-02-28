@@ -26,6 +26,14 @@
   margin: 0 auto;
 }
 
+.numberField {
+  margin: 0 auto;
+  max-width: 50px;
+  display: grid;
+  grid-auto-columns: repeat(auto-fit, minmax(1000px, 1fr));
+  grid-auto-rows: minmax(50px, auto);
+}
+
 /*=====================================
         Main Layout
 ======================================*/
@@ -35,41 +43,45 @@ h1 {
 
 main {
   width: 70%;
+  border: 1px solid #000;
+  border-radius: 10px;
 }
 main p {
   border: #000 1px solid;
-  border-radius: 50%;
+  border-radius: 10px;
+  text-align: center;
   padding: 0.5em;
 }
 
+.calcuDisp {
+  width: 70%;
+  margin: 0 auto;
+}
 .calcuDisp p {
   font-size: 1.5em;
   text-align: right;
-  border-radius: 0;
+  border-radius: 10px;
   height: 2.5em;
-  width: 100%;
 }
-.calcuDisp p ::placeholder {
+.calcuDisp p p ::placeholder {
   opacity: 0.5;
+}
+
+.numberField,
+.componentField {
+  width: 70%;
+  margin: 0 auto;
+}
+.numberField p, .numberField p,
+.componentField p,
+.componentField p {
+  width: 50px;
+  display: inline-block;
 }
 
 /*=====================================
         FLEXBOX 
 ======================================*/
-.flexCal {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.numFlex,
-.compFlex {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-}
-
 /*=====================================
         BUTTONS LAYOUT 
 ======================================*/

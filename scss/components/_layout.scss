@@ -8,20 +8,37 @@ h1 {
 
 main {
   width: 70%;
+  border: 1px solid $black;
+  border-radius: 10px;
   & p {
     border: $black 1px solid;
-    border-radius: 50%;
+    border-radius: 10px;
+    text-align: center;
     padding: .5em;
   }
 }
 
-.calcuDisp p {
-  font-size: 1.5em;
-  text-align: right;
-  border-radius: 0;
-  height: 2.5em;
-  width: 100%;
-  & ::placeholder {
-    opacity: .5;
+.calcuDisp {
+  width: 70%;
+  @include center;
+  & p {
+    font-size: 1.5em;
+    text-align: right;
+    border-radius: 10px;
+    height: 2.5em;
+    & p ::placeholder {
+      opacity: .5;
+    }
+  }
+}
+
+.numberField,
+.componentField {
+  width: 70%;
+  @include center;
+  & p,
+  & p {
+    width: 50px;
+    display: inline-block;
   }
 }
