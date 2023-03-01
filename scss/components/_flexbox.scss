@@ -20,3 +20,31 @@
 // .numFlex {
 //   flex-direction: column-reverse;
 // }
+
+.button-cntr {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.numberField {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.componentField {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  // justify-content: space-between;
+  // & :first-child {
+  //   // flex-grow: 1;
+  //   // margin-right: 10px;
+  // }
+  // & :nth-of-type(2) {
+  //   // flex-grow: 1;
+  //   // margin-left: 10px;
+  // }
+}

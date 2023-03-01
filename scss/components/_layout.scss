@@ -7,6 +7,7 @@ h1 {
 }
 
 main {
+  @include center;
   width: 70%;
   border: 1px solid $black;
   border-radius: 10px;
@@ -32,13 +33,33 @@ main {
   }
 }
 
-.numberField,
-.componentField {
+.button-cntr {
   width: 70%;
   @include center;
+}
+
+.numberField,
+.componentField {
+  max-width: 300px;
   & p,
   & p {
-    width: 50px;
+    // width: 70px;
+    width: 30px;
     display: inline-block;
+  }
+}
+
+.numberField {
+  & p {
+    max-height: 50px;
+  }
+}
+
+.componentField {
+  & :last-child {
+    background-color: white;
+  }
+  & :nth-of-type(1n+3) {
+    background-color: red;
   }
 }
