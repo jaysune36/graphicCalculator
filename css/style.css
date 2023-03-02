@@ -36,6 +36,7 @@ h1 {
 main {
   margin: 0 auto;
   width: 70%;
+  min-width: 325px;
   border: 1px solid #000;
   border-radius: 10px;
 }
@@ -60,31 +61,12 @@ main p {
   opacity: 0.5;
 }
 
-.button-cntr {
-  width: 70%;
-  margin: 0 auto;
-}
-
-.numberField,
-.componentField {
-  max-width: 300px;
-}
 .numberField p, .numberField p,
 .componentField p,
 .componentField p {
-  width: 30px;
-  display: inline-block;
-}
-
-.numberField p {
-  max-height: 50px;
-}
-
-.componentField :last-child {
-  background-color: white;
-}
-.componentField :nth-of-type(1n+3) {
-  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /*=====================================
@@ -92,20 +74,46 @@ main p {
 ======================================*/
 .button-cntr {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+.button-cntr :first-child {
+  order: 1;
 }
 
 .numberField {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 200px;
+  min-width: 150px;
+  justify-content: center;
   gap: 10px;
+}
+.numberField :first-child {
+  order: -1;
+}
+.numberField p:nth-of-type(10) {
+  order: 2;
+}
+.numberField p:nth-of-type(11) {
+  order: 3;
 }
 
 .componentField {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 150px;
+  justify-content: space-between;
+  gap: 10px;
+}
+.componentField p:nth-of-type(1) {
+  order: -1;
+}
+.componentField :last-child {
+  margin-right: auto;
+}
+.componentField :nth-of-type(even) {
   margin-right: auto;
 }
 
