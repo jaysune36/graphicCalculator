@@ -96,10 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     } else {
+      console.info(`${e.key}: ${e.code}`);
       for (let i = 0; i < pElements.length; i++) {
         let pElement = pElements[i];
-        let pElementTextCode = `Digit${pElement.innerText}`;
-        if (pElementTextCode === e.code) {
+        let pElementTextCode = `${pElement.innerText}`;
+        if (pElementTextCode === e.key) {
           secondValue = secondValue + pElement.innerText;
           calcuDispTextFunc(secondValue)
           pElement.style.backgroundColor = '#f09e3c';
