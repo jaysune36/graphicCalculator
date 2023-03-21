@@ -9,15 +9,24 @@
 }
 }
 
-.numberField,
-.componentField {
-  & p,
-  & p {
+// .numberField,
+// .componentField 
+.button-cntr {
+  @include center;
+  margin-bottom: 1em;
+  padding: 0 1em; 
+  & button {
+    border-color: $white;
     background-color: $btnInnerClr;
     box-shadow: 2px 2px 10px $btnOutlineClr;
     width: 50px;
     height: 50px;
     border-radius: 50%; 
-    padding: .5em;
+    color: $white;
+    font-size: 1.25em;
+  }
+  & :nth-child(-1n+7) {
+    color: $btnOutlineClr;
+    background-color: darken($btnInnerClr, 10%);
   }
 }
