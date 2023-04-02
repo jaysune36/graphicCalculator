@@ -2,6 +2,89 @@
         Media Layout
 ======================================*/
 
-@media (min-width: 768px) {
- 
+@media (min-width: 467px) {
+
+        .button-cntr {
+                gap: 20px;
+                //CLR btn
+                // & :nth-child(1) {
+                //         order: 4;
+                // }
+                // //backspace btn
+                // & :nth-child(2) {
+                //         order: 5;
+                // }
+                // //add btn
+                // & :nth-child(3) {
+                //         order: 9;
+                // }
+                // // minus btn
+                // & :nth-child(4) {
+                //         order: 10;
+                // }
+                // //divide btn
+                // & :nth-child(5) {
+                //         order: 14;
+                // }
+                // // multiply btn
+                // & :nth-child(6) {
+                //         order: 15;
+                // }
+                // //percent btn
+                // & :nth-child(7) {
+                //         order: 19;
+                // }
+                // //sum btn
+                // & :nth-child(8) {
+                //         order: 20;
+                // }
+                // // #9 btn
+                // & :nth-child(9) {
+                //         order: 1;
+                // }
+                // // #8 btn
+                // & :nth-child(10) {
+                //         order: 2;
+                // }
+                // // #7 btn
+                // & :nth-child(11) {
+                //         order: 3;
+                // }
+                // // #6 btn
+                // & :nth-child(12) {
+                //         order: 6;
+                // }
+                // // #5 btn
+                // & :nth-child(13) {
+                //         order: 7;
+                // }
+                // // #4 btn
+                // & :nth-child(14) {
+                //         order: 8;
+                // }
+                // // #3 btn
+                // & :nth-child(15) {
+                //         order: 11;
+                // }
+                // // #2 btn
+                // & :nth-child(16) {
+                //         order: 12;
+                // }
+                // // #1 btn
+                // & :nth-child(17) {
+                //         order: 13;
+                // }
+                // // #0 btn
+                // & :nth-child(18) {
+                //         order: 17;
+                // }
+                // // "." btn
+                // & :nth-child(19) {
+                //         order: 18;
+                // }
+                // // +/- btn
+                // & :nth-child(20) {
+                //         order: 16;
+                // }
+        }
 }

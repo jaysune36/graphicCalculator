@@ -14,9 +14,6 @@
         COMPONENTS PARTIALS
 ======================================*/
 /*=====================================
-        Media Layout
-======================================*/
-/*=====================================
         Grid Layout
 ======================================*/
 .grid-body {
@@ -77,55 +74,55 @@ main p {
   gap: 10px;
 }
 .button-cntr :nth-child(1) {
-  order: 4;
-}
-.button-cntr :nth-child(2) {
-  order: 5;
-}
-.button-cntr :nth-child(3) {
-  order: 9;
-}
-.button-cntr :nth-child(4) {
-  order: 10;
-}
-.button-cntr :nth-child(5) {
-  order: 14;
-}
-.button-cntr :nth-child(6) {
-  order: 15;
-}
-.button-cntr :nth-child(7) {
-  order: 19;
-}
-.button-cntr :nth-child(8) {
-  order: 20;
-}
-.button-cntr :nth-child(9) {
   order: 1;
 }
-.button-cntr :nth-child(10) {
-  order: 2;
-}
-.button-cntr :nth-child(11) {
+.button-cntr :nth-child(2) {
   order: 3;
 }
-.button-cntr :nth-child(12) {
-  order: 6;
-}
-.button-cntr :nth-child(13) {
-  order: 7;
-}
-.button-cntr :nth-child(14) {
+.button-cntr :nth-child(3) {
   order: 8;
 }
-.button-cntr :nth-child(15) {
-  order: 11;
-}
-.button-cntr :nth-child(16) {
+.button-cntr :nth-child(4) {
   order: 12;
 }
-.button-cntr :nth-child(17) {
+.button-cntr :nth-child(5) {
+  order: 16;
+}
+.button-cntr :nth-child(6) {
+  order: 20;
+}
+.button-cntr :nth-child(7) {
+  order: 2;
+}
+.button-cntr :nth-child(8) {
+  order: 4;
+}
+.button-cntr :nth-child(9) {
+  order: 5;
+}
+.button-cntr :nth-child(10) {
+  order: 6;
+}
+.button-cntr :nth-child(11) {
+  order: 7;
+}
+.button-cntr :nth-child(12) {
+  order: 9;
+}
+.button-cntr :nth-child(13) {
+  order: 10;
+}
+.button-cntr :nth-child(14) {
+  order: 11;
+}
+.button-cntr :nth-child(15) {
   order: 13;
+}
+.button-cntr :nth-child(16) {
+  order: 14;
+}
+.button-cntr :nth-child(17) {
+  order: 15;
 }
 .button-cntr :nth-child(18) {
   order: 17;
@@ -171,6 +168,14 @@ main p {
 @keyframes quickBackground {
   100% {
     background-color: #f09e3c;
+  }
+}
+/*=====================================
+        Media Layout
+======================================*/
+@media (min-width: 467px) {
+  .button-cntr {
+    gap: 20px;
   }
 }
 /*=====================================

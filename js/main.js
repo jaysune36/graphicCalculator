@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const numberField = document.querySelector('.numberField');
-  const componentField = document.querySelector('.componentField');
+  // const numberField = document.querySelector('.numberField');
+  // const componentField = document.querySelector('.componentField');
+  const btnCntr = document.querySelector('.button-cntr');
   const calcuDisplay = document.querySelector('.calcuDisp p');
   const body = document.querySelector('body');
   calcuDisplay.value = '';
@@ -16,9 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function keyBoardHighlightFunc(className) {
-    componentField.querySelector(`.${className}`).style.backgroundColor = '#f09e3c'
+    //componentField
+    btnCntr.querySelector(`.${className}`).style.backgroundColor = '#f09e3c'
     setTimeout(() => {
-      componentField.querySelector(`.${className}`).removeAttribute('style');
+      //componenField
+      btnCntr.querySelector(`.${className}`).removeAttribute('style');
     }, 110);
   }
 
@@ -62,10 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   //eventListener will register when clicked with mouse
-  numberField.addEventListener('click', (e) => {
+  //numberField
+  btnCntr.addEventListener('click', (e) => {
     let target = e.target;
     let numberValue = target.innerHTML;
-    if (target.tagName === 'P' && componentSelected === false) {
+    // console.log(target)
+    if (target.tagName === 'BUTTON' && componentSelected === false) {
       firstValue = firstValue + numberValue;
       calcuDispTextFunc(firstValue);
       firstValueSel = true;
@@ -74,11 +79,40 @@ document.addEventListener('DOMContentLoaded', () => {
       calcuDispTextFunc(secondValue);
       secondValueSel = true;
     }
+
+    if (target.innerText === 'CLR') {
+      firstValue = '';
+      firstValueSel = false;
+      secondValue = '';
+      secondValueSel = false;
+      componentValue = '';
+      componentSelected = false;
+      calcuDisplay.innerText = '';
+    }
+    if(target.className === 'backspace') {
+      if(firstValueSel === true) {
+        backspaceFunc();
+      } else {
+        backspaceFunc();
+      }
+    }else if (target.className === 'add' && componentSelected === false) {
+      componentSelectFunc(target.className, target.innerText);
+    } else if (target.className === 'minus' && componentSelected === false) {
+      componentSelectFunc(target.className, target.innerText);
+    } else if (target.className === 'slash' && componentSelected === false) {
+      componentSelectFunc(target.className, target.innerText);
+    } else if (target.className === 'multiply' && componentSelected === false) {
+      componentSelectFunc(target.className, target.innerText);
+    }
+    else if (target.className === 'sum' && componentSelected === true) {
+      sumValueFunc(firstValue, secondValue);
+    }
+
   });
 
   body.addEventListener('keyup', (e) => {
     
-    let pElements = numberField.querySelectorAll('p');  
+    let pElements = btnCntr.querySelectorAll('button');  
     console.info(`${e.key}: ${e.code}`);
     if (componentSelected === false || firstValue === 0) {
       firstValueSel = true;
@@ -135,36 +169,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  componentField.addEventListener('click', (e) => {
-    let target = e.target;
-    if (target.innerText === 'CLR') {
-      firstValue = '';
-      firstValueSel = false;
-      secondValue = '';
-      secondValueSel = false;
-      componentValue = '';
-      componentSelected = false;
-      calcuDisplay.innerText = '';
-    }
-    if(target.className === 'backspace') {
-      if(firstValueSel === true) {
-        backspaceFunc();
-      } else {
-        backspaceFunc();
-      }
-    }else if (target.className === 'add' && componentSelected === false) {
-      componentSelectFunc(target.className, target.innerText);
-    } else if (target.className === 'minus' && componentSelected === false) {
-      componentSelectFunc(target.className, target.innerText);
-    } else if (target.className === 'slash' && componentSelected === false) {
-      componentSelectFunc(target.className, target.innerText);
-    } else if (target.className === 'multiply' && componentSelected === false) {
-      componentSelectFunc(target.className, target.innerText);
-    }
-    else if (target.className === 'sum' && componentSelected === true) {
-      sumValueFunc(firstValue, secondValue);
-    }
-  });
+  // componentField.addEventListener('click', (e) => {
+  //   let target = e.target;
+  //   if (target.innerText === 'CLR') {
+  //     firstValue = '';
+  //     firstValueSel = false;
+  //     secondValue = '';
+  //     secondValueSel = false;
+  //     componentValue = '';
+  //     componentSelected = false;
+  //     calcuDisplay.innerText = '';
+  //   }
+  //   if(target.className === 'backspace') {
+  //     if(firstValueSel === true) {
+  //       backspaceFunc();
+  //     } else {
+  //       backspaceFunc();
+  //     }
+  //   }else if (target.className === 'add' && componentSelected === false) {
+  //     componentSelectFunc(target.className, target.innerText);
+  //   } else if (target.className === 'minus' && componentSelected === false) {
+  //     componentSelectFunc(target.className, target.innerText);
+  //   } else if (target.className === 'slash' && componentSelected === false) {
+  //     componentSelectFunc(target.className, target.innerText);
+  //   } else if (target.className === 'multiply' && componentSelected === false) {
+  //     componentSelectFunc(target.className, target.innerText);
+  //   }
+  //   else if (target.className === 'sum' && componentSelected === true) {
+  //     sumValueFunc(firstValue, secondValue);
+  //   }
+  // });
 
 
 });
