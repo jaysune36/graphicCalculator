@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function keyBoardCompSelect(compClassName) {
-    componentSelectFunc(compClassName, componentField.querySelector(`.${compClassName}`).innerText);
+    componentSelectFunc(compClassName, btnCntr.querySelector(`.${compClassName}`).innerText);
     keyBoardHighlightFunc(compClassName);
   }
 
@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(e.key === '+') {
         keyBoardCompSelect('add');
+        console.log(e.key)
     } else if(e.key === '-') {
         keyBoardCompSelect('minus');
     } else if(e.key === '*') {
@@ -156,16 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
       keyBoardCompSelect('slash');
     } else if(e.key === 'Backspace') {
       if(firstValueSel === true) {
-        console.log(`firstValue: ${firstValue}`);
         keyBoardHighlightFunc('backspace');
         backspaceFunc();
       } else {
-        console.log(`secondValue = ${secondValue}`);
         keyBoardHighlightFunc('backspace');
         backspaceFunc();
       }
     } else if(e.key === '=' || e.key === 'Enter') {
       sumValueFunc(firstValue, secondValue)
+      console.log(firstValue + secondValue + componentValue)
     }
   });
 
