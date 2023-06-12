@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const calcuDisplay = document.querySelector('.calcuDisp p');
   const body = document.querySelector('body');
   calcuDisplay.value = '';
-  let firstValue = '';
+  let firstValue = 0;
   let firstValueSel = false;
-  let secondValue = '';
+  let secondValue = 0;
   let secondValueSel = false;
   let componentValue = '';
   let componentSelected = false;
@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (target.innerText === 'CLR') {
-      firstValue = '';
+      firstValue = 0;
       firstValueSel = false;
-      secondValue = '';
+      secondValue = 0;
       secondValueSel = false;
       componentValue = '';
       componentSelected = false;
@@ -111,9 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   body.addEventListener('keyup', (e) => {
-    
+    let target = e.target;
     let pElements = btnCntr.querySelectorAll('button');  
-    console.info(`${e.key}: ${e.code}`);
+    console.log(target.key)
+    // console.info(`${e.key}: ${e.code}`);
     if (componentSelected === false || firstValue === 0) {
       firstValueSel = true;
       for (let i = 0; i < pElements.length; i++) {
@@ -146,9 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if(e.key === '+') {
+    if(target.key === '+') {
         keyBoardCompSelect('add');
-        console.log(e.key)
+        console.log(target.key)
     } else if(e.key === '-') {
         keyBoardCompSelect('minus');
     } else if(e.key === '*') {
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else if(e.key === '=' || e.key === 'Enter') {
       sumValueFunc(firstValue, secondValue)
-      console.log(firstValue + secondValue + componentValue)
+      console.log(firstValueSel + ' ' + secondValueSel)
     }
   });
 
